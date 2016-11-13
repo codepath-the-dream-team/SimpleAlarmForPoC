@@ -57,6 +57,7 @@
                     </view>
                     <connections>
                         <outlet property="alarmButton" destination="Lyr-SG-H6I" id="koc-wA-gy2"/>
+                        <outlet property="songLabel" destination="uIX-qe-GFR" id="37a-sB-wTz"/>
                         <outlet property="timerLabel" destination="gba-9E-DWm" id="4eO-Nl-upF"/>
                     </connections>
                 </viewController>
