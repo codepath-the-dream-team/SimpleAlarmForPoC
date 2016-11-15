@@ -65,6 +65,9 @@ class ViewController: UIViewController {
         self.player = AVPlayer(playerItem: playerItems[0])
         self.player.volume = 1.0
         self.songLabel.text = songNames[0]
+        NotificationCenter.default.addObserver(self, selector: Selector(("playerItemDidReachEnd:")),
+                                               name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+                                               object: self.player.currentItem)
     }
     
     func timerFired() {
@@ -86,6 +89,11 @@ class ViewController: UIViewController {
     
     func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+    
+    func playerItemDidReachEnd(notification: NSNotification) {
+        self.player.seek(to: kCMTimeZero)
+        self.player.play()
     }
 
 
