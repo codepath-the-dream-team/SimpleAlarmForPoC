@@ -1,13 +1,12 @@
 //
 //  AppDelegate.swift
-//  SimpleAlarm
+//  AnotherAlarm
 //
-//  Created by Chihiro Saito on 11/12/16.
+//  Created by Chihiro Saito on 11/14/16.
 //  Copyright © 2016 Chihiro Saito. All rights reserved.
 //
 
 import UIKit
-import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,15 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        UIApplication.shared.isIdleTimerDisabled = true
-        //let settings = UIUserNotificationSettings(types: .alert, categories: nil)
-        //UIApplication.shared.registerUserNotificationSettings(settings)
-        
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
-    
-        }
-        
         return true
     }
 
@@ -50,21 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-    func application(_ application: UIApplication,
-                     didReceive notification: UILocalNotification) {
-        print("Local notification received");
-        playMusic()
-    }
-    
-    func playMusic() {
-        if let rootController = self.window?.rootViewController {
-            print("trying to play music")
-            let myViewController = rootController as! ViewController
-            print("got a hold of root vc")
-            myViewController.player.play()
-        }
-    }
+
 
 }
 
