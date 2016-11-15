@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         }
     }
     var timer : Timer?
-    private let songNames = ["babbling-brook", "rainy-day", "morning-forest"]
+    private let songNames = ["rainy-day", "babbling-brook", "morning-forest"]
     private lazy var songs: [AVPlayerItem] = {
         return self.songNames.map {
             let url = Bundle.main.url(forResource: "Sounds/\($0)", withExtension: "mp3")!
@@ -65,9 +65,10 @@ class ViewController: UIViewController {
         self.player = AVPlayer(playerItem: playerItems[0])
         self.player.volume = 1.0
         self.songLabel.text = songNames[0]
-        NotificationCenter.default.addObserver(self, selector: Selector(("playerItemDidReachEnd:")),
-                                               name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
-                                               object: self.player.currentItem)
+        NotificationCenter.default.addObserver(self,
+                                                         selector: #selector(ViewController.playerItemReachedToEnd),
+                                                         name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+                                                         object: self.player.currentItem)
     }
     
     func timerFired() {
@@ -91,8 +92,8 @@ class ViewController: UIViewController {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
-    func playerItemDidReachEnd(notification: NSNotification) {
-        self.player.seek(to: kCMTimeZero)
+    func playerItemReachedToEnd(notification: NSNotification) {
+        self.player.seek(to: CMTimeMakeWithSeconds(1, 1))
         self.player.play()
     }
 
