@@ -12,7 +12,12 @@
 		60404DCA1DD7DA7B00D55C4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60404DC81DD7DA7B00D55C4B /* Main.storyboard */; };
 		60404DCC1DD7DA7B00D55C4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60404DCB1DD7DA7B00D55C4B /* Assets.xcassets */; };
 		60404DCF1DD7DA7B00D55C4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60404DCD1DD7DA7B00D55C4B /* LaunchScreen.storyboard */; };
-		60E66F031DD8C411003B05E8 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 60E66F021DD8C411003B05E8 /* Sounds */; };
+		60E66F511DDC302E003B05E8 /* AlarmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E66F4A1DDC302E003B05E8 /* AlarmObject.swift */; };
+		60E66F521DDC302E003B05E8 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E66F4B1DDC302E003B05E8 /* AlarmViewController.swift */; };
+		60E66F531DDC302E003B05E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60E66F4C1DDC302E003B05E8 /* Assets.xcassets */; };
+		60E66F551DDC302E003B05E8 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E66F4E1DDC302E003B05E8 /* Settings.swift */; };
+		60E66F561DDC302E003B05E8 /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E66F4F1DDC302E003B05E8 /* SleepViewController.swift */; };
+		60E66F571DDC302E003B05E8 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 60E66F501DDC302E003B05E8 /* Sounds */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +28,12 @@
 		60404DCB1DD7DA7B00D55C4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60404DCE1DD7DA7B00D55C4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60404DD01DD7DA7B00D55C4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		60E66F021DD8C411003B05E8 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
+		60E66F4A1DDC302E003B05E8 /* AlarmObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmObject.swift; sourceTree = "<group>"; };
+		60E66F4B1DDC302E003B05E8 /* AlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
+		60E66F4C1DDC302E003B05E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		60E66F4E1DDC302E003B05E8 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		60E66F4F1DDC302E003B05E8 /* SleepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
+		60E66F501DDC302E003B05E8 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +66,12 @@
 		60404DC31DD7DA7B00D55C4B /* SimpleAlarm */ = {
 			isa = PBXGroup;
 			children = (
-				60E66F021DD8C411003B05E8 /* Sounds */,
+				60E66F4A1DDC302E003B05E8 /* AlarmObject.swift */,
+				60E66F4B1DDC302E003B05E8 /* AlarmViewController.swift */,
+				60E66F4C1DDC302E003B05E8 /* Assets.xcassets */,
+				60E66F4E1DDC302E003B05E8 /* Settings.swift */,
+				60E66F4F1DDC302E003B05E8 /* SleepViewController.swift */,
+				60E66F501DDC302E003B05E8 /* Sounds */,
 				60404DC41DD7DA7B00D55C4B /* AppDelegate.swift */,
 				60404DC61DD7DA7B00D55C4B /* ViewController.swift */,
 				60404DC81DD7DA7B00D55C4B /* Main.storyboard */,
@@ -134,8 +149,9 @@
 			files = (
 				60404DCF1DD7DA7B00D55C4B /* LaunchScreen.storyboard in Resources */,
 				60404DCC1DD7DA7B00D55C4B /* Assets.xcassets in Resources */,
-				60E66F031DD8C411003B05E8 /* Sounds in Resources */,
 				60404DCA1DD7DA7B00D55C4B /* Main.storyboard in Resources */,
+				60E66F531DDC302E003B05E8 /* Assets.xcassets in Resources */,
+				60E66F571DDC302E003B05E8 /* Sounds in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,8 +162,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60E66F561DDC302E003B05E8 /* SleepViewController.swift in Sources */,
+				60E66F521DDC302E003B05E8 /* AlarmViewController.swift in Sources */,
+				60E66F511DDC302E003B05E8 /* AlarmObject.swift in Sources */,
 				60404DC71DD7DA7B00D55C4B /* ViewController.swift in Sources */,
 				60404DC51DD7DA7B00D55C4B /* AppDelegate.swift in Sources */,
+				60E66F551DDC302E003B05E8 /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Vzs-Rm-wgk">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Sleep Timer-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SimpleAlarm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Sleep Timer" id="BYZ-38-t0r" customClass="SleepViewController" customModule="SimpleAlarm" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -23,46 +23,179 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rainforest.mp3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIX-qe-GFR">
-                                <rect key="frame" x="24" y="200" width="327" height="47"/>
+                                <rect key="frame" x="24" y="120" width="327" height="47"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gba-9E-DWm">
-                                <rect key="frame" x="24" y="282" width="327" height="23.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GzY-0d-4h6">
+                                <rect key="frame" x="52" y="218" width="167" height="2"/>
+                            </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyr-SG-H6I">
-                                <rect key="frame" x="144" y="434" width="87" height="33"/>
+                                <rect key="frame" x="168.5" y="270" width="38" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Start Alarm"/>
+                                <state key="normal" title="Start"/>
                                 <connections>
-                                    <action selector="onButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pot-Rh-Kx0"/>
+                                    <action selector="onButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k0p-l8-3oN"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="a65-Ve-1bn">
+                                <rect key="frame" x="28" y="568" width="319" height="31"/>
+                                <connections>
+                                    <action selector="onVolumeSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="dsv-2L-DFV"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gba-9E-DWm">
+                                <rect key="frame" x="288.5" y="207" width="50.5" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.49128305912017822" green="0.084766365587711334" blue="0.46024775505065918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.94476801156997681" green="0.83348864316940308" blue="0.033054683357477188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="gba-9E-DWm" firstAttribute="baseline" secondItem="GzY-0d-4h6" secondAttribute="baseline" constant="6.5" id="0Mf-xO-inY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GzY-0d-4h6" secondAttribute="trailing" constant="140" id="1Qg-OH-JwC"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="a65-Ve-1bn" secondAttribute="bottom" constant="20" id="3qq-mb-s4Q"/>
+                            <constraint firstItem="Lyr-SG-H6I" firstAttribute="top" secondItem="GzY-0d-4h6" secondAttribute="bottom" constant="50" id="4Gu-O9-giK"/>
                             <constraint firstItem="Lyr-SG-H6I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9DC-4I-qfH"/>
-                            <constraint firstItem="gba-9E-DWm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="DWZ-Bu-4VT"/>
-                            <constraint firstItem="uIX-qe-GFR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="180" id="EW4-oh-mlH"/>
+                            <constraint firstItem="GzY-0d-4h6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="52" id="CAc-wC-faH"/>
+                            <constraint firstItem="uIX-qe-GFR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="EW4-oh-mlH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uIX-qe-GFR" secondAttribute="trailing" constant="8" id="FSa-vM-dXl"/>
-                            <constraint firstItem="gba-9E-DWm" firstAttribute="top" secondItem="uIX-qe-GFR" secondAttribute="bottom" constant="35" id="JBb-9o-J0D"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gba-9E-DWm" secondAttribute="trailing" constant="8" id="b8j-xg-fJL"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Lyr-SG-H6I" secondAttribute="bottom" constant="200" id="hUn-VS-Goh"/>
+                            <constraint firstItem="gba-9E-DWm" firstAttribute="top" secondItem="uIX-qe-GFR" secondAttribute="bottom" constant="40" id="JBb-9o-J0D"/>
+                            <constraint firstItem="a65-Ve-1bn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="P2x-Od-k8Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gba-9E-DWm" secondAttribute="trailing" constant="20" id="b8j-xg-fJL"/>
+                            <constraint firstAttribute="trailing" secondItem="a65-Ve-1bn" secondAttribute="trailing" constant="30" id="j5A-AZ-bwO"/>
                             <constraint firstItem="uIX-qe-GFR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="t96-LK-9Cw"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Night" id="3cw-rl-vPV"/>
                     <connections>
-                        <outlet property="alarmButton" destination="Lyr-SG-H6I" id="koc-wA-gy2"/>
-                        <outlet property="songLabel" destination="uIX-qe-GFR" id="37a-sB-wTz"/>
-                        <outlet property="timerLabel" destination="gba-9E-DWm" id="4eO-Nl-upF"/>
+                        <outlet property="alarmButton" destination="Lyr-SG-H6I" id="c7A-DP-TM2"/>
+                        <outlet property="mediaTimeProgressView" destination="GzY-0d-4h6" id="505-56-leY"/>
+                        <outlet property="songLabel" destination="uIX-qe-GFR" id="0y5-qf-3ex"/>
+                        <outlet property="timerLabel" destination="gba-9E-DWm" id="rCq-FK-Wka"/>
+                        <outlet property="volumeSlider" destination="a65-Ve-1bn" id="SWO-cn-UmA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-482" y="-537"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="MZc-mO-QGI">
+            <objects>
+                <tabBarController id="Vzs-Rm-wgk" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="S5V-Sq-2Rw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Jco-KU-9NE"/>
+                        <segue destination="cxJ-oM-F6k" kind="relationship" relationship="viewControllers" id="tm0-Zh-aIg"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UNC-u4-m9Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1631" y="-467"/>
+        </scene>
+        <!--Awake Timer-->
+        <scene sceneID="k8r-mg-L9U">
+            <objects>
+                <viewController title="Awake Timer" id="cxJ-oM-F6k" customClass="AlarmViewController" customModule="SimpleAlarm" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r7n-St-kkH"/>
+                        <viewControllerLayoutGuide type="bottom" id="WeX-zg-5ee"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7sI-JF-nUL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rainforest.mp3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzN-Zr-fVs">
+                                <rect key="frame" x="24" y="120" width="327" height="47"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDS-xh-Uqs">
+                                <rect key="frame" x="127" y="385" width="121" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Schedule Alarm"/>
+                                <connections>
+                                    <action selector="onButtonClick:" destination="cxJ-oM-F6k" eventType="touchUpInside" id="Ls7-QG-GLa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="5 minutes to max volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yl-XS-Jbf">
+                                <rect key="frame" x="30" y="255" width="192" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm starts at 16:45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icy-S9-LRm">
+                                <rect key="frame" x="30" y="285" width="158" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mNE-xJ-II8">
+                                <rect key="frame" x="10" y="508" width="355" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="jlN-LT-Jfw"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MD-uF-4k0">
+                                <rect key="frame" x="284" y="197" width="51" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wck-eF-Wav">
+                                <rect key="frame" x="40" y="197" width="51" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98438352346420288" green="0.59861290454864502" blue="0.021918695420026779" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.49128305912017822" green="0.084766365587711334" blue="0.46024775505065918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FzN-Zr-fVs" firstAttribute="top" secondItem="r7n-St-kkH" secondAttribute="bottom" constant="100" id="7iy-6w-FKA"/>
+                            <constraint firstItem="4yl-XS-Jbf" firstAttribute="leading" secondItem="7sI-JF-nUL" secondAttribute="leading" constant="30" id="APa-lC-mZF"/>
+                            <constraint firstItem="3MD-uF-4k0" firstAttribute="centerY" secondItem="Wck-eF-Wav" secondAttribute="centerY" id="D8V-U3-SPC"/>
+                            <constraint firstAttribute="trailing" secondItem="3MD-uF-4k0" secondAttribute="trailing" constant="40" id="Fdk-PK-ze1"/>
+                            <constraint firstItem="Wck-eF-Wav" firstAttribute="leading" secondItem="7sI-JF-nUL" secondAttribute="leading" constant="40" id="G0V-5o-fM5"/>
+                            <constraint firstItem="WeX-zg-5ee" firstAttribute="top" secondItem="mNE-xJ-II8" secondAttribute="bottom" constant="10" id="L8X-rf-ZmI"/>
+                            <constraint firstAttribute="trailing" secondItem="mNE-xJ-II8" secondAttribute="trailing" constant="10" id="OJF-d1-xsQ"/>
+                            <constraint firstItem="icy-S9-LRm" firstAttribute="top" secondItem="4yl-XS-Jbf" secondAttribute="bottom" constant="10" id="Tsu-wy-hXF"/>
+                            <constraint firstItem="3MD-uF-4k0" firstAttribute="top" secondItem="FzN-Zr-fVs" secondAttribute="bottom" constant="30" id="Wab-V5-XUR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FzN-Zr-fVs" secondAttribute="trailing" constant="8" id="YUN-Mc-abo"/>
+                            <constraint firstItem="mNE-xJ-II8" firstAttribute="leading" secondItem="7sI-JF-nUL" secondAttribute="leading" constant="10" id="h6p-Pc-WHV"/>
+                            <constraint firstItem="WeX-zg-5ee" firstAttribute="top" secondItem="eDS-xh-Uqs" secondAttribute="bottom" constant="200" id="iUd-fz-HnD"/>
+                            <constraint firstItem="icy-S9-LRm" firstAttribute="leading" secondItem="7sI-JF-nUL" secondAttribute="leading" constant="30" id="jTe-gi-AtN"/>
+                            <constraint firstItem="4yl-XS-Jbf" firstAttribute="top" secondItem="Wck-eF-Wav" secondAttribute="bottom" constant="34" id="nc5-Z8-53T"/>
+                            <constraint firstItem="FzN-Zr-fVs" firstAttribute="leading" secondItem="7sI-JF-nUL" secondAttribute="leadingMargin" constant="8" id="sIz-0x-HA3"/>
+                            <constraint firstItem="eDS-xh-Uqs" firstAttribute="centerX" secondItem="7sI-JF-nUL" secondAttribute="centerX" id="xIK-Et-ass"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Day" id="qTL-TE-3G8"/>
+                    <connections>
+                        <outlet property="alarmScheduleLabel" destination="icy-S9-LRm" id="Av6-KD-58r"/>
+                        <outlet property="currentTimeLabel" destination="Wck-eF-Wav" id="Zv1-JH-3D1"/>
+                        <outlet property="maxVolumeLabel" destination="4yl-XS-Jbf" id="xPn-XS-y8J"/>
+                        <outlet property="mediaTimeLabel" destination="3MD-uF-4k0" id="QTr-JZ-Hzu"/>
+                        <outlet property="songNameLabel" destination="FzN-Zr-fVs" id="I4J-Lx-D3X"/>
+                        <outlet property="startButton" destination="eDS-xh-Uqs" id="MGT-Tb-9RZ"/>
+                        <outlet property="statusTextView" destination="mNE-xJ-II8" id="hos-SG-1tt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J59-Pt-zSO" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-482" y="130"/>
         </scene>
     </scenes>
 </document>
